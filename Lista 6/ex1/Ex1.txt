@@ -1,0 +1,1 @@
+A resposta é D, pois o valor 8 não deveria fazer parte da busca.

@@ -1,0 +1,9 @@
+Exercício 2
+
+a) Não é uma arvore rubro-negra.
+Nem todos os caminhos da raíz até as folhas da arvore apresentam o mesmo número de nós pretos.
+
+b) É uma arvore rubro-negra.
+
+c) É uma arvore rubro-negra.
+

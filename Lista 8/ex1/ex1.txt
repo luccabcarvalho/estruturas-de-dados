@@ -1,0 +1,18 @@
+A Heap é uma estrutura que implementa uma arvore binária COMPLETA através de um array. As posições, nessa estrutura, são completadas da esquerda para direita.
+Existem dois tipos de Heap, a Heap máxima e a Heap mínima.
+
+Na Heap máxima, o valor de todo nó é maior ou igual ao de seus filhos.
+Na Heap mínima, o valor de todo nó é menor ou igual ao de seus filhos. 
+
+Exemplo de uma Heap máxima:
+
+
+              100
+	    /     \
+	  19       36
+	/    \    /  \
+      17      3  25   1
+     /  \
+   2      7
+
+ = {100, 19, 36, 17, 3, 25, 1, 2, 7}

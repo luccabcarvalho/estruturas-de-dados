@@ -1,0 +1,61 @@
+Ex4
+
+0. | A |
+
+1. | S |
+
+2. | Y |
+
+3. | E |
+
+4. | Q |
+
+5. | T |
+
+6. | I |
+
+7. | U |
+
+8. | O |
+
+9. |  |
+
+10. | N |
+
+11. |  |
+
+12. |  |
+
+13. |  |
+
+14. |  |
+
+15. |  |
+
+
+Função = (11 * k) % M
+
+=> E A S Y Q U T I O N
+
+=
+
+E = 11 * 5 % 4 = 3
+A = 11 * 1 % 4 = 3 (Colisão) => procura posição (0)
+S = 11 * 19 % 4 = 1
+Y = 11 * 25 % 4 = 3 (Colisão) => procura posição (2)
+
+(Tabela cheia)
+*expande para o dobro do tamanho*
+M = 8
+
+Q = 11 * 17 % 8 = 3 (Colisão) => procura posição (4)
+U = 11 * 21 % 8 = 7 
+T = 11 * 20 % 8 = 4 (Colisão) => procura posição (5)
+I = 11 * 9 % 4 = 3 (Colisão) => procura posição (6)
+
+(Tabela cheia)
+*expande para o dobro do tamanho*
+M = 16
+
+O = 11 * 15 % 16 = 5 (Colisão) => procura posição (8)
+N = 11 * 14 % 5 = 10

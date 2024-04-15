@@ -1,0 +1,11 @@
+Ex3
+
+A implementação do método é legal. O método retorna um número inteiro
+que pode ser utilizado para identificação ou comparação do objeto. 
+A implementação: 
+	
+public int hashCode()
+{ return 17; } 
+
+é considerada pobre pois resultaria em uma gama de objetos com o mesmo 
+valor de identificação.
