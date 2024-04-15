@@ -1,0 +1,43 @@
+Lista 3 - Estrutura de Dados
+
+1 -
+a) O(n)
+b) O(n^2)
+c) O(n log(n))
+
+2 -
+a) 0.001n^5 | O(n^5)
+b) 500n | O(n)
+c) 2.5n^1.75 | O(n^1.75)
+d) n^2 logn | O(n^2 logn)
+e) n log3 n | O(n log3 n)
+f) n log2 n | O(n log2 n)
+g) 0.01n^2 | O(n^2)
+h) 100n^2 | O(n^2)
+i) 0.5n^1.25 | O(n^1.25)
+j) n(log2 n)^2 | O(n(log2 n)^2)
+k) n^3 | O(n^3)
+l) log2 log2 n | O(log2 log2 n)
+
+3 - 
+I) O(n).
+A complexidade do while é O(n).
+A complexidade do if é O(1).
+Portanto, O(1) * O(n) =  O(n).
+
+II) O(n).
+A complexidade do for é O(n).
+A complexidade do if é O(1).
+Portanto, O(1) * O(n) = O(n).
+
+III) O(log n).
+A complexidade desse while é O(log n).
+A cada looping, ele divide a área de busca por 2.
+Portanto, o while repetirá, no pior caso, log n vezes.
+
+4 - Arquivo do algorítimo na pasta.
+
+5 - O(n^2).
+A complexidade de cada for é O(n). Portanto um for dentro do outro, é O(n^2).
+Já a complexidade dos if's e atribuições em geral é O(1), cada.
+Portanto, sendo c o número de if's e atribuições em geral, c * O(1) * O(n^2) = O(n^2).

@@ -1,0 +1,316 @@
+import javax.lang.model.util.ElementScanner6;
+import java.util.Vector;
+
+public class PilhaGenerica<T>
+{
+    private int n;
+    private Vector<T> vetor;
+    private int topo;
+
+    public PilhaGenerica(int tamanho)
+    {
+        n = tamanho;
+        vetor = new Vector<T>(tamanho);
+        topo = -1;
+    }
+
+    public boolean vazia()
+    {
+        return topo == -1 ? true : false;
+    }
+
+    public boolean cheia()
+    {
+        return topo == n - 1 ? true : false;
+    }
+
+    public T pop()
+    {
+        T elemento;
+
+        if (!this.vazia())
+        {
+            elemento = vetor.get(topo--);
+            return elemento;
+        }
+        else
+        {
+            //Impress�o para fins did�ticos
+            System.out.println("Pilha vazia: pop nao funcionou.");
+            return null;
+        }
+    }
+
+    public boolean push(T elemento)
+    {
+        if (!this.cheia())
+        {
+            vetor.add(++topo, elemento);
+            return true;
+        }
+        else
+        {
+            //Impress�o para fins did�ticos
+            System.out.println("Pilha cheia: push nao funcionou.\n");
+            return false;
+        }
+    }
+
+    public boolean retornaTopo(T elemento)
+    {
+        if(!this.vazia()){
+            elemento = vetor.get(topo);
+            return true;
+        }
+        else
+            return false;
+    }
+
+    //Método Exercício 1
+
+    public void confereInversa()
+    {
+        boolean contInverso = true;
+        int topoIndex = vetor.size() - 1;
+
+        for(int i = 0; i <= (vetor.size() - 1); i++)
+        {
+            if(vetor.get(i).equals(String.valueOf('A')) || vetor.get(i).equals(String.valueOf('B'))) {
+
+                if (vetor.get(i).equals(vetor.get(topoIndex - i))) {
+                    System.out.println(vetor.get(i) + "/" + vetor.get(topoIndex - i));
+                    contInverso = true;
+                } else {
+                    contInverso = false;
+                    break;
+                }
+            }
+            else if(i == ((vetor.size() - 1) / 2) && vetor.get(i).equals(String.valueOf('C'))){
+                System.out.println(vetor.get(i) + "/" + vetor.get(topoIndex - i));
+                contInverso = true;
+            }
+            else {
+                contInverso = false;
+                break;
+            }
+
+        }
+
+        if(contInverso)
+            System.out.println("Formato correto!");
+        else
+            System.out.println("Formato incorreto!");
+
+    }
+
+    //Método Exercício 2
+
+    public void confereCadeia(PilhaGenerica pilha) {
+
+        String aux;
+        boolean contInverso = false;
+        int k = (vetor.size() - 1);
+        Vector<Object> vetorAux1 = new Vector<Object>(vetor.size());
+        Vector<Object> vetorAux2 = new Vector<Object>(vetor.size());
+
+        while (k >= 0) {
+
+            aux = (String) pilha.pop();
+
+            if(!aux.equals("D"))
+                vetorAux1.add(aux);
+
+
+            if (aux.equals("D") || k == 0){
+
+                int topoIndex = vetorAux1.size() - 1;
+
+                for(int i = 0; i <= (vetorAux1.size() - 1); i++)
+                {
+                    if(vetorAux1.get(i).equals(String.valueOf('A')) || vetorAux1.get(i).equals(String.valueOf('B'))) {
+
+                        if (vetorAux1.get(i).equals(vetorAux1.get(topoIndex - i))) {
+                            System.out.println(vetorAux1.get(i) + "/" + vetorAux1.get(topoIndex - i));
+                            contInverso = true;
+                        } else {
+                            contInverso = false;
+                            break;
+                        }
+                    }
+                    else if(i == ((vetorAux1.size() - 1) / 2) && vetorAux1.get(i).equals(String.valueOf('C'))){
+                        System.out.println(vetorAux1.get(i) + "/" + vetorAux1.get(topoIndex - i));
+                        contInverso = true;
+                    }
+                    else {
+                        contInverso = false;
+                        break;
+                    }
+
+                }
+                vetorAux1.clear();
+            }
+            k--;
+        }
+
+
+        if(contInverso)
+            System.out.println("Formato correto!");
+        else
+            System.out.println("Formato incorreto!");
+
+    }
+
+    //Métodos Exercício 3
+
+    public int tamanhoPilha(PilhaGenerica pilha)
+    {
+        return pilha.vetor.size();
+    }
+
+    public void lerPilha(PilhaGenerica pilha)
+    {
+        for(int i = 0; i < pilha.vetor.size(); i++)
+        {
+            System.out.print(pilha.vetor.get(i));
+        }
+    }
+
+    //Método Exercício 4
+
+    public int tamanhoPilha4(PilhaGenerica pilha)
+    {
+        return pilha.vetor.size();
+    }
+
+    public Object elementoPosicao(PilhaGenerica pilha, int p)
+    {
+        return pilha.vetor.get(p);
+    }
+
+
+    //Método Exercício 5
+
+    public Object topo(PilhaGenerica pilha)
+    {
+        return pilha.vetor.get(topo);
+    }
+
+    //Método Exercício 6
+
+    public void invertePalavras(PilhaGenerica pilha, PilhaGenerica pilha2, StringBuilder s)
+    {
+        Object aux;
+        char c;
+
+        s.append(' ');
+        for (int i = pilha.vetor.size(); i > 0; i--)
+        {
+            aux = pilha.pop();
+            c = (char) aux;
+            s.append(c);
+        }
+        s.append(' ');
+
+        //lê a string de trás para frente
+        for (int i = (s.length() - 2); i >= 0; i--)
+        {
+            if (s.charAt(i) == ' ')
+            {
+
+                //dá push em ordem crescente nas palavras já invertidas, retornando-as para a ordem original da pilha
+                int k = i + 1;
+                while (s.charAt(k) != ' ')
+                {
+                    pilha2.push(s.charAt(k));
+                    k++;
+                }
+                pilha2.push(' ');
+            }
+        }
+
+        for (int i = 0; i < pilha2.vetor.size(); i++)
+        {
+            aux = pilha2.vetor.get(i);
+            System.out.print(aux);
+        }
+    }
+
+    //Método Exercício 7
+
+    public float conta(PilhaGenerica pilha)
+    {
+        Object aux;
+        int operando1;
+        int operando2;
+        char operador;
+        char auxOperando;
+
+        aux = pilha.pop();
+        auxOperando = (char) aux;
+        operando2 = (int) auxOperando;
+
+        aux = pilha.pop();
+        operador = (char) aux;
+
+        aux = pilha.pop();
+        auxOperando = (char) aux;
+        operando1 = (int) auxOperando;
+
+        float result = 0;
+
+        switch (operador) {
+
+            case '+':
+                result = operando1 + operando2;
+                break;
+            case '-':
+                result = operando1 - operando2;
+                break;
+            case '*':
+               result = operando1 * operando2;
+               break;
+           case '/':
+               result = operando1 / operando2;
+               break;
+
+       }
+
+
+        System.out.println(result);
+        return result;
+    }
+
+}
+
+
+//Object auxOperando;
+//        Character operando1;
+//        Character operando2;
+//        Object auxOperador;
+//        char operador;
+//        float result = 0;
+//
+//
+//        auxOperando = pilha.pop();
+//        operando1 = (Character) auxOperando;
+//        auxOperador = pilha.pop();
+//        operador = (char) auxOperador;
+//        auxOperando = pilha.pop();
+//        operando2 = (Character) auxOperando;
+
+//        switch (operador) {
+//
+//            case '+':
+//                result = operando1 + Character.getNumericValue(operando2);
+//                break;
+//            case '-':
+//                result = operando1 - operando2;
+//                break;
+//            case '*':
+//                result = operando1 * operando2;
+//                break;
+//            case '/':
+//                result = operando1 / operando2;
+//                break;
+//
+//        }

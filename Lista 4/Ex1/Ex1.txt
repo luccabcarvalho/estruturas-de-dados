@@ -1,0 +1,3 @@
+O método tamanho() tem complexidade O(n). Esta é a melhor complexidade possível 
+para este método, visto que para calcular a quantidade de elementos da lista encadeada é
+necessário um looping que percorre toda a sua extensão.
